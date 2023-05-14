@@ -82,7 +82,7 @@ int main()
         cout << s_v << "\t" << s_r << "\t" << fabs(s_v - s_r) << endl;
     }
 
-    cout << "\n\ns_v\t\t\ts_r\t\t\t|s_v - s_r|\n";
+    cout << "\n\nsd_v\t\t\tsd_r\t\t\t|sd_v - sd_r|\n";
     for(int k = 1; k <= 7; ++k)
     {
         sd_v = harm_series_forward(pow(10,k));
@@ -100,7 +100,7 @@ int main()
         cout << s_v << "\t" << s_r << "\t" << fabs(s_v - s_r) << endl;
     }
 
-    cout << "\n\ns_v\t\t\ts_r\t\t\t|s_v - s_r|\n";
+    cout << "\n\nsd_v\t\t\tsd_r\t\t\t|sd_v - sd_r|\n";
     for(int k = 1; k <= 7; ++k)
     {
         sd_v = general_harm_series_forward<double>(pow(10,k));
