@@ -19,6 +19,5 @@ int main()
     unsigned int input = 0;
     std::cout << "Von welcher Zahl soll die Fakultaet berechnet werden?: ";
     std::cin >> input;
-    unsigned int output = factorial(input);
-    std::cout << "Die Fakultaet von " << input << " ist: " << output << std::endl;
+    std::cout << "Die Fakultaet von " << input << " ist: " << factorial(input) << std::endl;
 }
