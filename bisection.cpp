@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <functional>
+#include <iomanip>
 
 using namespace std;
 
@@ -49,27 +50,27 @@ int main()
     float bisecZero = bisec([](float x) -> float { return exp(sin(x)) - 0.5; },
     a,b,max_iter,tol);
 
-    cout << bisecZero << " ist die gesuchte Nullstelle von f = exp(sin(x)) - 0.5 \n" << endl;
+    cout << setprecision(10) << bisecZero << " ist die gesuchte Nullstelle von f = exp(sin(x)) - 0.5 \n" << endl;
 
     bisecZero = bisec([](float x) -> float { return 1/sqrt(pow(x,2) + 1) - cos(x+1); },
     a,b,max_iter,tol);
 
-    cout << bisecZero << " ist die gesuchte Nullstelle von f = 1/sqrt(pow(x,2) + 1) - cos(x+1) \n" << endl;
+    cout << setprecision(10) << bisecZero << " ist die gesuchte Nullstelle von f = 1/sqrt(pow(x,2) + 1) - cos(x+1) \n" << endl;
 
     bisecZero = bisec([](float x) -> float { return sin(cos(x+1)); },
     a,b,max_iter,tol);
 
-    cout << bisecZero << " ist die gesuchte Nullstelle von f = sin(cos(x+1)) \n" << endl;
+    cout << setprecision(10) << bisecZero << " ist die gesuchte Nullstelle von f = sin(cos(x+1)) \n" << endl;
 
     bisecZero = bisec([](float x) -> float { return atan(pow(x,2) + 2*x) -0.2; },
     a,b,max_iter,tol);
 
-    cout << bisecZero << " ist die gesuchte Nullstelle von f = atan(pow(x,2) + 2*x) -0.2 \n" << endl;
+    cout << setprecision(10) << bisecZero << " ist die gesuchte Nullstelle von f = atan(pow(x,2) + 2*x) -0.2 \n" << endl;
 
     bisecZero = bisec([](float x) -> float { return pow(x,2) + 1; },
     a,b,max_iter,tol);
 
-    cout << bisecZero << " ist die gesuchte Nullstelle von f = pow(x,2) + 1 " << endl;
+    cout << setprecision(10) << bisecZero << " ist die gesuchte Nullstelle von f = pow(x,2) + 1 " << endl;
 
     return 0;
 }
