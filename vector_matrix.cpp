@@ -41,7 +41,7 @@ int main()
             else
             {
                 I[k * m + i] = 0;
-                M[k * m + i] = k + 1;
+                M[k * m + i] = k + i + 1;  
             }
         }
     }
