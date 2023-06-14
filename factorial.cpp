@@ -1,12 +1,9 @@
 #include <iostream>
 
-int factorial(unsigned int n)
-{
+int factorial(unsigned int n) {
     unsigned int prod = 1;
-    if(n > 0)
-    {
-        for (unsigned int i = n; i > 1; --i)
-        {
+    if(n > 0) {
+        for (unsigned int i = n; i > 1; --i) {
             prod = prod * i;
         }
     }
@@ -14,8 +11,7 @@ int factorial(unsigned int n)
     return prod;
 }
 
-int main()
-{
+int main() {
     unsigned int input = 0;
     std::cout << "Von welcher Zahl soll die Fakultaet berechnet werden?: ";
     std::cin >> input;

@@ -1,10 +1,8 @@
 #include <iostream>
 
-unsigned int ggT(unsigned int a, unsigned int b)
-{
+unsigned int ggT(unsigned int a, unsigned int b) {
     unsigned int teiler = 1;
-    while (teiler > 0)
-    {
+    while (teiler > 0) {
         teiler = a % b;
 
         if(teiler == 0)
@@ -16,8 +14,7 @@ unsigned int ggT(unsigned int a, unsigned int b)
     return 1;
 }
 
-int main()
-{
+int main() {
     unsigned int a = 13575;
     unsigned int b = 354;
 
