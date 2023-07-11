@@ -2,18 +2,29 @@
 
 using namespace std;
 
-int berechne_pascal_dreieck(int s) {
-    return s;
-}
-
 int main() {
-    int m = 0;
+    int rows = 0;
 
-    cout << "Bis zu welcher Stufe m moechtest du das pascalsche Dreieck berechnen lassen?
-        \nBeachte, dass es nur positive ganze Zahlen sein koennen" << endl
-    cin >> m;
+    cout << "Enter number of rows. Number has to be positive: ";
+    cin >> rows;
+    cout << endl;
 
-    if(m < 0) {
-        return 0;
+    if(rows < 0) {
+        cout << "Die Zahl muss positiv sein" << endl;
+        return 1;
     }
+
+    for(int i = 0; i < rows; ++i) {
+        int val = 1;
+        for(int j = 1; j < (rows - i); ++j) {
+            cout << "   ";
+        }
+        for(int k = 0; k <= i; ++k) {
+            cout << "   " << val;
+            val = val * (i-k) / (k+1);
+        }
+        cout << endl << endl;
+    }
+    cout << endl;
+    return 0;
 }
