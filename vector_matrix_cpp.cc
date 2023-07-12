@@ -29,6 +29,16 @@ void print_vector(vector<T> &vec) {
     cout << endl;
 }
 
+template<class container, typename T>
+T dot_product(container &a, container &b) {
+    if(a.size() != b.size()) { return 0; }
+    T result = 0;
+    for(size_t i = 0; i < a.size(); ++i) {
+        result += a.at(i) * b.at(i);
+    }
+    return result;
+}
+
 int main (int argc, char *argv[]) {
     const size_t n = 3;
     vector<double> x;
@@ -51,6 +61,14 @@ int main (int argc, char *argv[]) {
     if(result.size() != x.size() || result.size() != y.size()) { return 1;}
 
     print_vector<double>(result);
+
+    double dot_product_vector = dot_product<vector<double>, double>(x, y);
+
+    cout << dot_product_vector << endl;
+
+    double dot_product_array = dot_product<array<double,n>, double>(mat, mat);
+
+    cout << dot_product_array << endl;
 
     return 0;
 }
