@@ -39,4 +39,5 @@ int main(int argv, char **argc) {
     print_dyn_array(n,arr);
     bubblesort(n, arr);
     print_dyn_array(n,arr);
+    delete[] arr;
 }

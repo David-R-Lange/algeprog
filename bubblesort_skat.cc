@@ -61,4 +61,5 @@ int main(int argv, char **argc) {
     print_card_array(n, arr);
     bubblesort(n, arr);
     print_card_array(n,arr);
+    delete[] arr;
 }
