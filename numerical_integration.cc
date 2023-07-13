@@ -3,29 +3,52 @@
 #include <functional>
 
 using namespace std;
+typedef double (*ftptr) (double);
 
-
-double midpoint(function<double(double)> func, double &a, double &b) {
-  if (b > a) {
-    return 0;
-  }
-  return (b - a) * func((a + b) / 2);
+double f(double x) {
+    return exp(x);
 }
 
-double trapezoid_rule(function<double(double)> func, double &a, double &b) {
-    if(b > a) {
-        return 0;
-    }
-    return (b-a) * (0.5 * func(a) + 0.5 * func(b));
+double midpoint(ftptr f, double &a, double &b) {
+  return f(0.5*(a+b));
 }
 
-double upper_sum(function<double(double)> func, double &a, double &b, int n) {
-    if(b>a) {
-        return 0;
+double trapezoid_rule(ftptr f, double &a, double &b) {
+    return 0.5*f(a)+0.5*f(b);
+}
+
+double upper_sum_midpoint(ftptr f, double &a, double &b, double n) {
+    double result = 0;
+    double h = (b-a)/n;
+    double x1, x2;
+    for(int i = 0; i < n; ++i) {
+        x1 = a+i*h;
+        x2 = a+(i+1)*h;
+        result += (x2-x1)*midpoint(f, x1,x2);
     }
-    return 0;
+    return result;
+}
+
+double upper_sum_trapezoid(ftptr f, double &a, double &b, double n) {
+    double result = 0;
+    double h = (b-a)/n;
+    double x1, x2;
+    for(int i = 0; i < n; ++i) {
+        x1 = a+i*h;
+        x2 = a+(i+1)*h;
+        result += (x2-x1)*trapezoid_rule(f, x1,x2);
+    }
+    return result;
 }
 
 int main(int argc, char **argv) {
+    double begin = 0;
+    double end = 10;
+    double number_of_intervalls = 100;
+    double I_mid = upper_sum_midpoint(f, begin, end, number_of_intervalls);
+    cout << "Numberical Integration of the function e^x from " << begin << " to " << end << " is = " << I_mid << endl;
+
+    double I_trap = upper_sum_trapezoid(f, begin, end, number_of_intervalls);
+    cout << "Numberical Integration of the function e^x from " << begin << " to " << end << " is = " << I_trap << endl;
     return 0;
 }
