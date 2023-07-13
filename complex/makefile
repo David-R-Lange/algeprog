@@ -1,5 +1,4 @@
-all:
-	g++ -Wall -o complex_numbers complex_numbers.cc complex.cc
+all:	complex_numbers
 	./complex_numbers
 complex_numbers: complex_numbers.o complex.o
 	g++ *.o -o complex_numbers
