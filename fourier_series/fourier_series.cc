@@ -1,17 +1,5 @@
-#include <iostream>
 #include <cmath>
 #include <vector>
+#include "fourier_series.hh"
 
 using namespace std;
-
-class Fourier {
-    private:
-        int M_exponent;
-        vector<double> M_ak;
-        vector<double> M_bk;
-
-    public:
-        Fourier(int exponent, vector<double> ak, vector<double> bk);
-        ~Fourier();
-
-};
