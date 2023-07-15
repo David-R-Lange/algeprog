@@ -12,11 +12,11 @@ class Complex {
         void set_real(double r);
         void set_imaginary(double i);
         void print() const;
-        Complex conjugate();
+        static Complex conjugate(Complex c);
         double abs() const;
-        Complex add(Complex c);
-        Complex subtract(Complex c);
-        Complex multiply(Complex c);
-        Complex divide(Complex c);
+        static Complex add(Complex &c, Complex &c1);
+        static Complex subtract(Complex &c, Complex &c1);
+        static Complex multiply(Complex &c, Complex c1);
+        static Complex divide(Complex &c, Complex c1);
 };
 #endif // !COMPLEX_NUMBERS_H

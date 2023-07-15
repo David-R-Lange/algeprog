@@ -37,37 +37,36 @@ void Complex::print() const {
     }
 }
 
-Complex Complex::conjugate() {
-    this->set_imaginary(-this->get_imaginary());
-    return *this;
+Complex Complex::conjugate(Complex c) {
+    c.set_imaginary(-c.get_imaginary());
+    return c;
 }
 
 double Complex::abs() const {
     return sqrt(pow(this->get_real(),2) + pow(this->get_imaginary(),2));
 }
 
-Complex Complex::add(Complex c) {
-    this->set_real(this->get_real()+c.get_real());
-    this->set_imaginary(this->get_imaginary()+c.get_imaginary());
-    return *this;
+Complex Complex::add(Complex &c1, Complex &c2) {
+    c1.set_real(c1.get_real()+c2.get_real());
+    c1.set_imaginary(c1.get_imaginary()+c2.get_imaginary());
+    return c1;
+}
+Complex Complex::subtract(Complex &c1, Complex &c2) {
+    c1.set_real(c1.get_real()+c2.get_real());
+    c1.set_imaginary(c1.get_imaginary()+c2.get_imaginary());
+    return c1;
 }
 
-Complex Complex::subtract(Complex c) {
-    this->set_real(this->get_real()-c.get_real());
-    this->set_imaginary(this->get_imaginary()-c.get_imaginary());
-    return *this;
+Complex Complex::multiply(Complex &c1, Complex c) {
+    c1.set_real(c1.get_real()*c.get_real() - c1.get_imaginary()*c.get_imaginary());
+    c1.set_imaginary(c1.get_real()*c.get_imaginary() + c.get_real()*c1.get_imaginary());
+    return c1;
 }
 
-
-Complex Complex::multiply(Complex c) {
-    this->set_real(this->get_real()*c.get_real() - this->get_imaginary()*c.get_imaginary());
-    this->set_imaginary(this->get_real()*c.get_imaginary() + c.get_real()*this->get_imaginary());
-    return *this;
-}
-
-Complex Complex::divide(Complex c) {
-    double z2 = (c.multiply(c.conjugate()).abs());
-    this->set_real((this->get_real()*c.get_real() + this->get_imaginary()*c.get_imaginary()) / z2);
-    this->set_imaginary((this->get_imaginary()*c.get_real() - this->get_real()*c.get_imaginary())/z2);
-    return *this;
+Complex Complex::divide(Complex &c1, Complex c) {
+    c = multiply(c, conjugate(c));
+    double z2 = c.abs();
+    c1.set_real((c1.get_real()*c.get_real() + c1.get_imaginary()*c.get_imaginary()) / z2);
+    c1.set_imaginary((c1.get_imaginary()*c.get_real() - c1.get_real()*c.get_imaginary())/z2);
+    return c1;
 }
