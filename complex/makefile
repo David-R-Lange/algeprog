@@ -10,9 +10,6 @@ complex_vector.o: complex_vector.cc complex_vector.hh complex_numbers.hh
 complex_vector_test.o: complex_vector_test.cc complex_vector.hh complex_numbers.hh
 	g++ -c -Wall complex_vector_test.cc
 
-complex_numbers: complex_numbers.o 
-	g++ *.o -o complex_numbers
-
 complex_numbers.o: complex_numbers.cc complex_numbers.hh
 	g++ -c -Wall complex_numbers.cc
 

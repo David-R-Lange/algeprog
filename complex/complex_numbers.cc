@@ -12,6 +12,10 @@ Complex::Complex(double r, double i) {
     M_imaginary = i;
 }
 
+Complex::~Complex() {
+    delete[] this;
+}
+
 double Complex::get_real() const {
     return M_real;
 }

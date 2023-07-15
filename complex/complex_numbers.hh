@@ -7,10 +7,13 @@ class Complex {
         double M_imaginary;
     public:
         Complex(double r, double i);
+        ~Complex();
+
         double get_real() const;
         double get_imaginary() const;
         void set_real(double r);
         void set_imaginary(double i);
+
         void print() const;
         static Complex conjugate(Complex c);
         double abs() const;

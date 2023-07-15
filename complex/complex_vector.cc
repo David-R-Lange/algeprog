@@ -22,7 +22,7 @@ vector<Complex> Complex_vector::get_cvev() const{
     return m_cnumber;
 }
 
-void Complex_vector::set_cvec(vector<Complex> cvec) {
+void Complex_vector::set_cvec(vector<Complex> &cvec) {
     m_cnumber = cvec;
 }
 
@@ -33,7 +33,7 @@ void Complex_vector::print() const{
     }
 }
 
-void Complex_vector::add_vector(Complex_vector cv) {
+void Complex_vector::add_vector(Complex_vector &cv) {
     size_t n = this->m_cnumber.size();
     if(n != cv.m_cnumber.size()) { return;}
     for(size_t i = 0; i < n - 1; ++i) {
@@ -41,7 +41,7 @@ void Complex_vector::add_vector(Complex_vector cv) {
     }
 }
 
-void Complex_vector::subtract_vector(Complex_vector cv) {
+void Complex_vector::subtract_vector(Complex_vector &cv) {
     size_t n = this->m_cnumber.size();
     if(n != cv.m_cnumber.size()) { return;}
     for(size_t i = 0; i < n; ++i) {
@@ -49,7 +49,7 @@ void Complex_vector::subtract_vector(Complex_vector cv) {
     }
 }
 
-void Complex_vector::scale(Complex c) {
+void Complex_vector::scale(Complex &c) {
     size_t n = this->m_cnumber.size();
     for(size_t i = 0; i < n; ++i) {
         Complex::multiply(this->get_cvev().at(i), c);
