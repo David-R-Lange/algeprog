@@ -20,7 +20,6 @@ list<double> sorted_input() {
 }
 
 void print_list(list<double> list) {
-    double list_element;
     for(auto i = list.cbegin(); i != list.cend(); ++i) {
         cout << *i << ' ';
     }
