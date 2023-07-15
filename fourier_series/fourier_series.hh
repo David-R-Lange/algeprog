@@ -6,13 +6,17 @@ using namespace std;
 
 class Fourier {
     private:
-        int M_exponent;
-        vector<double> M_ak;
-        vector<double> M_bk;
+        int m_exponent;
+        vector<double> m_ak;
+        vector<double> m_bk;
 
     public:
         Fourier(int exponent, vector<double> ak, vector<double> bk);
         ~Fourier();
+        Fourier(Fourier& fr);
+        double eval(double x);
+        double eval(double a0, double x);
+        
 
 };
 #endif // !FOURIER_SERIES_H
