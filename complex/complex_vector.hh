@@ -14,13 +14,13 @@ class Complex_vector {
         Complex_vector(std::vector<Complex>&);
         Complex_vector(Complex_vector&);
         ~Complex_vector();
-        std::vector<Complex> get_cvev() const;
+        std::vector<Complex>* get_cvec();
         void set_cvec(std::vector<Complex>&);
         
 
         void print() const;
-        Complex_vector add_vector(Complex_vector);
-        Complex_vector subtract_vector(Complex_vector);
-        Complex_vector scale(Complex&);
+        void add_vector(Complex_vector);
+        void subtract_vector(Complex_vector);
+        void scale(Complex&);
 };
 #endif

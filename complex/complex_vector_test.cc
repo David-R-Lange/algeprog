@@ -9,7 +9,7 @@ int main() {
     Complex c2(4,2);
     Complex c3(3,1);
     Complex c4(2,0);
-    Complex c5(15,35);
+    Complex c5(2,0);
     std::cout << "Done....." << std::endl;
 
     std::cout << "Creating Complex Vectors......: " << std::endl;
@@ -29,24 +29,21 @@ int main() {
     std::cout << "Test successfull...................." << std::endl;
 
     std::cout << "Testing Copy-Constructor: " << std::endl;
-    Complex myComp2[] = {c4, c3, c2, c1};
 
-    
-    std::vector<Complex> cvt2 (myComp2, myComp2 + sizeof(myComp)/sizeof(myComp2[0]) );
+    Complex_vector cvc(cv1);
 
-    Complex_vector cvc(cvt2);
 
     std::cout << "Test successfull..................." << std::endl;
 
     std::cout << "Testing adding complex vector with  complex vector: " << std::endl;
-    cv1 = cv1.add_vector(cvc);
+    cv1.add_vector(cvc);
     std::cout << "Test successfull..................." << std::endl;
 
     cv1.print();
 
     std::cout << "Testing subtracting complex vector from complex vector: " << std::endl;
 
-    cv1 = cv1.subtract_vector(cvc);
+    cv1.subtract_vector(cvc);
 
     std::cout << "Test successfull..................." << std::endl;
 
@@ -54,7 +51,7 @@ int main() {
 
     std::cout << "Testing scaling of complex vector: " << std::endl;
 
-    cv1 = cv1.scale(c5);
+    cv1.scale(c5);
 
     std::cout << "Test successfull..................." << std::endl;
 

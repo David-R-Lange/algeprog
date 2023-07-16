@@ -55,8 +55,8 @@ Complex* Complex::add(Complex &c1, Complex c2) {
     return &c1;
 }
 Complex* Complex::subtract(Complex &c1, Complex c2) {
-    c1.set_real(c1.get_real()+c2.get_real());
-    c1.set_imaginary(c1.get_imaginary()+c2.get_imaginary());
+    c1.set_real(c1.get_real()-c2.get_real());
+    c1.set_imaginary(c1.get_imaginary()-c2.get_imaginary());
     return &c1;
 }
 
