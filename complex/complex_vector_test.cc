@@ -19,7 +19,7 @@ int main() {
 
     Complex myComp[] = {c1, c2, c3, c4};
 
-    std::vector<Complex> cv (myComp, myComp + sizeof(myComp)/sizeof(myComp[0]));
+    std::vector<Complex> cv (myComp, myComp + sizeof(myComp)/sizeof(myComp[0]) );
 
     Complex_vector cv1(cv);
 
@@ -29,19 +29,24 @@ int main() {
     std::cout << "Test successfull...................." << std::endl;
 
     std::cout << "Testing Copy-Constructor: " << std::endl;
-    Complex_vector cvc(cv1);
+    Complex myComp2[] = {c4, c3, c2, c1};
+
+    
+    std::vector<Complex> cvt2 (myComp2, myComp2 + sizeof(myComp)/sizeof(myComp2[0]) );
+
+    Complex_vector cvc(cvt2);
 
     std::cout << "Test successfull..................." << std::endl;
 
     std::cout << "Testing adding complex vector with  complex vector: " << std::endl;
-    cv1.add_vector(cvc);
+    cv1 = cv1.add_vector(cvc);
     std::cout << "Test successfull..................." << std::endl;
 
     cv1.print();
 
     std::cout << "Testing subtracting complex vector from complex vector: " << std::endl;
 
-    cv1.subtract_vector(cvc);
+    cv1 = cv1.subtract_vector(cvc);
 
     std::cout << "Test successfull..................." << std::endl;
 
@@ -49,7 +54,7 @@ int main() {
 
     std::cout << "Testing scaling of complex vector: " << std::endl;
 
-    cv1.scale(c5);
+    cv1 = cv1.scale(c5);
 
     std::cout << "Test successfull..................." << std::endl;
 

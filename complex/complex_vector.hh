@@ -11,16 +11,16 @@ class Complex_vector {
         
     public:
         Complex_vector();
-        Complex_vector(std::vector<Complex> c);
-        Complex_vector(Complex_vector& cvec);
+        Complex_vector(std::vector<Complex>&);
+        Complex_vector(Complex_vector&);
         ~Complex_vector();
         std::vector<Complex> get_cvev() const;
-        void set_cvec(std::vector<Complex> &c);
+        void set_cvec(std::vector<Complex>&);
         
 
         void print() const;
-        void add_vector(Complex_vector &cv);
-        void subtract_vector(Complex_vector &cv);
-        void scale(Complex &c);
+        Complex_vector add_vector(Complex_vector);
+        Complex_vector subtract_vector(Complex_vector);
+        Complex_vector scale(Complex&);
 };
 #endif

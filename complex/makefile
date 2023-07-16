@@ -2,7 +2,7 @@ all: complex_vector
 	./complex_vector
 
 complex_vector: complex_numbers.o complex_vector.o complex_vector_test.o
-	g++ *.o -o complex_vector
+	g++ *.o -o complex_vector -g
 
 complex_vector.o: complex_vector.cc complex_vector.hh complex_numbers.hh
 	g++ -c -Wall complex_vector.cc

@@ -13,7 +13,6 @@ Complex::Complex(double r, double i) {
 }
 
 Complex::~Complex() {
-    delete[] this;
 }
 
 double Complex::get_real() const {
@@ -41,36 +40,36 @@ void Complex::print() const {
     }
 }
 
-Complex Complex::conjugate(Complex c) {
+Complex Complex::conjugate(Complex &c) {
     c.set_imaginary(-c.get_imaginary());
     return c;
 }
 
 double Complex::abs() const {
-    return sqrt(pow(this->get_real(),2) + pow(this->get_imaginary(),2));
+    return sqrt(this->get_real()*this->get_real() + this->get_imaginary()*this->get_imaginary());
 }
 
-Complex Complex::add(Complex &c1, Complex &c2) {
+Complex* Complex::add(Complex &c1, Complex c2) {
     c1.set_real(c1.get_real()+c2.get_real());
     c1.set_imaginary(c1.get_imaginary()+c2.get_imaginary());
-    return c1;
+    return &c1;
 }
-Complex Complex::subtract(Complex &c1, Complex &c2) {
+Complex* Complex::subtract(Complex &c1, Complex c2) {
     c1.set_real(c1.get_real()+c2.get_real());
     c1.set_imaginary(c1.get_imaginary()+c2.get_imaginary());
-    return c1;
+    return &c1;
 }
 
-Complex Complex::multiply(Complex &c1, Complex c) {
+Complex* Complex::multiply(Complex &c1, Complex c) {
     c1.set_real(c1.get_real()*c.get_real() - c1.get_imaginary()*c.get_imaginary());
     c1.set_imaginary(c1.get_real()*c.get_imaginary() + c.get_real()*c1.get_imaginary());
-    return c1;
+    return &c1;
 }
 
-Complex Complex::divide(Complex &c1, Complex c) {
-    c = multiply(c, conjugate(c));
+Complex* Complex::divide(Complex &c1, Complex c) {
+    c = *multiply(c, conjugate(c));
     double z2 = c.abs();
     c1.set_real((c1.get_real()*c.get_real() + c1.get_imaginary()*c.get_imaginary()) / z2);
     c1.set_imaginary((c1.get_imaginary()*c.get_real() - c1.get_real()*c.get_imaginary())/z2);
-    return c1;
+    return &c1;
 }
