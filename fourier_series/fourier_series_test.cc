@@ -21,4 +21,10 @@ int main(int argc, char **argv) {
     s_x = f2.eval(a0, x);
 
     cout << "Fourier series at x = " << x << " with a0 = " << a0 <<  " is: " << s_x << endl;
+
+    Fourier f3 = Fourier::derivative(f1);
+
+    s_x = f3.eval(x);
+
+    cout << "Derivative of Fourier series at x = " << x << " is: " << s_x << endl;
 }

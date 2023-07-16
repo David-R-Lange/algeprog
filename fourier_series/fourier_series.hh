@@ -11,12 +11,11 @@ class Fourier {
         vector<double> m_bk;
 
     public:
-        Fourier(int exponent, vector<double> ak, vector<double> bk);
+        Fourier(int, vector<double>, vector<double>);
         ~Fourier();
-        Fourier(Fourier& fr);
-        double eval(double x);
-        double eval(double a0, double x);
-        
-
+        Fourier(Fourier&);
+        double eval(double);
+        double eval(double, double);
+        static Fourier derivative(Fourier&);
 };
 #endif // !FOURIER_SERIES_H

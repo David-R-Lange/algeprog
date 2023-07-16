@@ -34,3 +34,15 @@ double Fourier::eval(double a0, double x) {
     }
     return f;
 }
+
+Fourier Fourier::derivative(Fourier& fr) {
+    vector<double> ak = fr.m_ak;
+    vector<double> bk = fr.m_bk;
+    ak.at(0) = 0;
+    for(size_t i = 1; i < bk.size(); ++i) {
+        ak.at(i) = 2*M_PI*i*bk.at(i-1);
+        bk.at(i-1) = -2*M_PI*i*ak.at(i);
+    }
+    Fourier dfdt(fr.m_exponent, ak, bk);
+    return dfdt;
+}
