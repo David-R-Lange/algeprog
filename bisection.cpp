@@ -14,23 +14,20 @@ float bisec(function<float(float)> func, float a, float b, float max_iter, float
     float retval;
 
     for(float k = 1; k <= max_iter; ++k) {
-        
+
         retval = (a+b)*0.5;
 
         if(fabs(func(retval)) < tol) {
             break;
         }
 
-        if( (func(a) > 0.0 && func(retval) < 0.0) ||
-            (func(a) < 0.0 && func(retval) > 0.0)) {
+        if( func(a) * func(retval) < 0.0){
             b = retval;
         }
-        else if( (func(b) > 0.0 && func(retval) < 0.0) ||
-                 (func(b) < 0.0 && func(retval) > 0.0)) {
+        else {
             a = retval;
         }
     }
-
     return retval;
 }
 
