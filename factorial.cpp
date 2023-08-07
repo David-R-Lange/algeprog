@@ -2,12 +2,9 @@
 
 int factorial(unsigned int n) {
     unsigned int prod = 1;
-    if(n > 0) {
-        for (unsigned int i = n; i > 1; --i) {
-            prod = prod * i;
-        }
+    for (unsigned int i = n; i > 1; --i) {
+        prod = prod * i;
     }
-    
     return prod;
 }
 
