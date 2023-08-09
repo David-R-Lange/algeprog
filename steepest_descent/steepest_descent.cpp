@@ -6,8 +6,6 @@ SteepestDescent::SteepestDescent(Function& fct) {
 
 void SteepestDescent::set_x0(double x) {
     this->m_x = x;
-    this->m_f = this->m_fct.f(x);
-    this->m_df = this->m_fct.df(x);
 }
 
 double const SteepestDescent::x() {
@@ -17,12 +15,17 @@ double const SteepestDescent::x() {
 int SteepestDescent::solve(double& x0, double eps, double n) {
    this->set_x0(x0);
    double x = x0;
+   double f = 0;
+   double df = 0; 
+   this->m_fct.eval(x,f,df);
    int iter = 0;
+
    for(; iter < n+1; ++iter) {
        x = this->x();
-       this->m_x = x - this->m_fct.df(x);
+       this->m_x = x - df;
+       this->m_fct.eval(x, f, df);
 
-       if( abs(this->m_fct.df(x)) < eps) {
+       if( abs(df) < eps) {
            break;
        }
    }
