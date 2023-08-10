@@ -1,3 +1,4 @@
+#include <iostream>
 #include "steepest_descent.hh"
 
 using namespace std;
