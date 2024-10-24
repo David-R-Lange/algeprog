@@ -52,12 +52,12 @@ int main() {
 
     cout << setprecision(10) << bisecZero << " ist die gesuchte Nullstelle von f = sin(cos(x+1)) \n" << endl;
 
-    bisecZero = bisec([](float x) -> float { return atan(pow(x,2) + 2*x) -0.2; },
+    bisecZero = bisec([](float x) -> float { return atan(x*x + 2*x) -0.2; },
     a,b,max_iter,tol);
 
     cout << setprecision(10) << bisecZero << " ist die gesuchte Nullstelle von f = atan(pow(x,2) + 2*x) -0.2 \n" << endl;
 
-    bisecZero = bisec([](float x) -> float { return pow(x,2) + 1; },
+    bisecZero = bisec([](float x) -> float { return x*x + 1; },
     a,b,max_iter,tol);
 
     cout << setprecision(10) << bisecZero << " ist die gesuchte Nullstelle von f = pow(x,2) + 1 " << endl;
